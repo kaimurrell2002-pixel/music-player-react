@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: white;
+}
+
+.container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+.song {
+  font-size: 24px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.buttons button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  background: #ff9800;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.buttons button:hover {
+  background: #e68900;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #00c6ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background: #0096cc;
+}
+
+.back {
+  background: #f44336;
+}
