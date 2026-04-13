@@ -1,35 +1,58 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 
 function Home() {
   return (
-    <div className="container">
-      <h1>🎵 Music Player</h1>
-      <Link to="/player" className="btn">Open Player</Link>
+    <div className="home">
+      <h1>My Music</h1>
+      <Link to="/player" className="play-btn">Open Player</Link>
     </div>
   );
 }
 
 function Player() {
-  const [song, setSong] = useState(localStorage.getItem("song") || "No song selected");
+  const songs = Array.from({ length: 50 }, (_, i) => ({
+    title: `Song ${i + 1}`,
+    artist: "Unknown Artist",
+    cover: `/covers/cover${(i) + 1}.jpg`,
+    file: `/songs/song${(i) + 1}.mp3`
+  }));
 
-  useEffect(() => {
-    localStorage.setItem("song", song);
-  }, [song]);
+  const [currentSong, setCurrentSong] = useState(songs[0]);
 
   return (
-    <div className="container">
-      <h2>Now Playing</h2>
-      <p className="song">{song}</p>
-
-      <div className="buttons">
-        <button onClick={() => setSong("Song 1")}>Song 1</button>
-        <button onClick={() => setSong("Song 2")}>Song 2</button>
-        <button onClick={() => setSong("Song 3")}>Song 3</button>
+    <div className="player-container">
+      
+      {/* Sidebar */}
+      <div className="sidebar">
+        <h2>Playlist</h2>
+        {songs.map((song, index) => (
+          <div 
+            key={index} 
+            className="song-item"
+            onClick={() => setCurrentSong(song)}
+          >
+            <img src={song.cover} alt="cover" />
+            <div>
+              <p>{song.title}</p>
+              <span>{song.artist}</span>
+            </div>
+          </div>
+        ))}
       </div>
 
-      <Link to="/" className="btn back">⬅ Back</Link>
+      {/* Main Player */}
+      <div className="main-player">
+        <h2>Now Playing</h2>
+        <img className="cover-large" src={currentSong.cover} alt="cover" />
+        <h3>{currentSong.title}</h3>
+        <p>{currentSong.artist}</p>
+
+        <audio controls src={currentSong.file}></audio>
+
+        <Link to="/" className="back-btn">⬅ Back</Link>
+      </div>
     </div>
   );
 }
