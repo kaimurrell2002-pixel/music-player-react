@@ -12,7 +12,7 @@ function Home() {
 }
 
 function Player() {
-  const songs = Array.from({ length: 50 }, (_, i) => ({
+  const songs = Array.from({ length: 30 }, (_, i) => ({
     title: `Song ${i + 1}`,
     artist: "Unknown Artist",
     cover: `/covers/cover${(i) + 1}.jpg`,
@@ -24,7 +24,7 @@ function Player() {
   return (
     <div className="player-container">
       
-      {/* Sidebar */}
+     
       <div className="sidebar">
         <h2>Playlist</h2>
         {songs.map((song, index) => (
@@ -42,7 +42,7 @@ function Player() {
         ))}
       </div>
 
-      {/* Main Player */}
+      {/* Main Player to play stuff of course */}
       <div className="main-player">
         <h2>Now Playing</h2>
         <img className="cover-large" src={currentSong.cover} alt="cover" />

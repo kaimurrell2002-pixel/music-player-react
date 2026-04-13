@@ -1,3 +1,4 @@
+/* JUST LIKE ASSIGNMENT 1 PAGE 2 i guess but i made it a little different react is fun*/
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -5,7 +6,7 @@ body {
   color: white;
 }
 
-/* HOME */
+
 .home {
   text-align: center;
   margin-top: 150px;
@@ -19,13 +20,13 @@ body {
   border-radius: 30px;
 }
 
-/* LAYOUT */
+
 .player-container {
   display: flex;
   height: 100vh;
 }
 
-/* SIDEBAR */
+
 .sidebar {
   width: 300px;
   background: #000;
